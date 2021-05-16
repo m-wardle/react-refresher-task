@@ -1,3 +1,7 @@
+# Intro
+
+A small project following a tutorial to shake the rust off my React abilities.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
