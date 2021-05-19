@@ -1,11 +1,19 @@
 import * as React from 'react';
 
 export interface IButtonProps {
-  text: string
+  text: string;
+  colour?: string;
+  onClick: () => void;
 }
 
-export default function Button ({text}: IButtonProps) {
+export default function Button ({text, colour = "grey", onClick}: IButtonProps) {
   return (
-    <button className='button'>{text}</button>
+    <button 
+      className='btn' 
+      style={{backgroundColor: colour}}
+      onClick={onClick}
+     >
+      {text}
+    </button>
   );
 }
