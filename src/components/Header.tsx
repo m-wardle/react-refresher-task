@@ -1,19 +1,16 @@
 import * as React from 'react';
+import Button from './Button'
 
-interface HeaderProps {
+export interface IHeaderProps {
   titleMain: string;
   titleName?: string; // just testing default props with object destructuring
 }
 
-export default function Header ({titleMain, titleName = "World"}: HeaderProps) {
+export default function Header ({titleMain, titleName = "World"}: IHeaderProps) {
   return (
-    <div>
+    <header className='header'>
       <h1>{titleMain} {titleName}</h1>
-    </div>
+      <Button text="Add"/>
+    </header>
   );
 }
-
-
-
-
-
