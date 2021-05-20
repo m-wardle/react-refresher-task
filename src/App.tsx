@@ -23,10 +23,16 @@ function App() {
       "reminder": true
     }
   ])
+
+  // Delete Task
+
+  function deleteTask(id:number) {
+    console.log('delete', id)
+  }
   return (
     <div className="container">
       <Header titleMain="Hello" />
-      <Tasks tasks={tasks}/>
+      <Tasks tasks={tasks} onDelete={deleteTask}/>
     </div>
   );
 }
