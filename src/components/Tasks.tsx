@@ -1,12 +1,5 @@
 import React from 'react';
-import Task from './Task'
-
-interface task {
-  id: number;
-  text: string;
-  day: string;
-  reminder: boolean;
-};
+import Task, { task } from './Task'
 
 export interface ITasksProps {
   tasks: task[];
