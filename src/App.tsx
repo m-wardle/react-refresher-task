@@ -36,7 +36,11 @@ function App() {
 
   // Delete Task
 
-  function deleteTask(id:number) {
+  async function deleteTask(id:number) {
+    await fetch(`http://localhost:5000/tasks/${id}`, {
+      method: 'DELETE'
+    })
+
     setTasks(tasks.filter((task) => task.id !== id))
   };
 
