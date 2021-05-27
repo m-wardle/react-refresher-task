@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import Header from './components/Header'
-import Tasks from './components/Tasks'
-import { task } from './components/Task'
-import AddTask, { newTask } from './components/AddTask'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Tasks from './components/Tasks';
+import { task } from './components/Task';
+import AddTask, { newTask } from './components/AddTask';
+import Footer from './components/Footer';
+import About from './components/About';
 
 function App() {
   const [showAddTask, setShowAddTask] = useState(false);
-  const [tasks, setTasks] = useState<task[]>([])
+  const [tasks, setTasks] = useState<task[]>([]);
 
   useEffect(() => {
     async function getTasks() {
@@ -88,15 +91,27 @@ function App() {
   };
   
   return (
+    <Router>
     <div className="container" >
       <Header titleMain="Task" showAddTask={showAddTask} onAdd={setShowAddTask}/>
-      {showAddTask && <AddTask onAdd={addTask} />}
-      {tasks.length > 0 ? (
-      <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />)
-    : (
-      "No Tasks Available"
-    )}
+    <Route path='/' exact render={() => (
+      <>
+        {showAddTask && <AddTask onAdd={addTask} />}
+        {tasks.length > 0 ? (
+          <Tasks 
+          tasks={tasks} 
+          onDelete={deleteTask} 
+          onToggle={toggleReminder} 
+        />
+        ) : (
+          "No Tasks Available"
+        )}
+      </>
+    )} />
+    <Route path='/about' component={About} />
+    <Footer />
     </div>
+    </Router>
   );
 }
 
